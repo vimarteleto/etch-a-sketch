@@ -1,17 +1,18 @@
 :root {
-    --gridRowsColumns: 16;
+    --gridRowsColumns: 30;
+    --squareSize: 20px;
 }
 
 #grid-container {
     display: grid;
-    grid-template-columns: repeat(var(--gridRowsColumns), 20px);
-    grid-template-rows: repeat(var(--gridRowsColumns), 20px)
+    grid-template-columns: repeat(var(--gridRowsColumns), var(--squareSize));
+    grid-template-rows: repeat(var(--gridRowsColumns), var(--squareSize));
 }
 
 .grid {
-    border: 1px solid rgb(100, 100, 100);
+    border: 1px solid rgb(228, 228, 228);
 }
 
 .grid.selected {
-    background-color: black;
+    background-color: #000000
 }
