@@ -1,6 +1,7 @@
 const gridContainer = document.querySelector('#grid-container')
 const root = document.documentElement
 
+
 // barra slider para mudança do grid
 const slider = document.querySelector('.slider')
 const sliderResult = document.querySelector('.slider-result')
