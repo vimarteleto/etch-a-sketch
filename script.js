@@ -1,6 +1,4 @@
-const gridContainer = document.querySelector('#grid-container')
 const root = document.documentElement
-
 
 // barra slider para mudança do grid
 const slider = document.querySelector('.slider')
@@ -15,8 +13,9 @@ slider.oninput = function() {
 const newGridButton = document.querySelector('#grid-button')
 newGridButton.addEventListener('click', newGrid)
 
-// grid inicial de 16x16
+// grid inicial de 30x30
 let grid = Array(Number(slider.value) ** 2)
+const gridContainer = document.querySelector('#grid-container')
 for(let i = 0; i < grid.length; i++) {
     const casas = document.createElement('div')
     casas.classList.add('grid')
@@ -51,22 +50,28 @@ function newGrid() {
 
 // funcao de desenho
 function coloringGrd() {
-    // evento de 'mouseover' para adição de classe com estilo
+    // evento de 'mouseover' para adição de propriedade de estilo
     let casas = document.querySelectorAll('.grid')
     casas.forEach(casa => {
     casa.addEventListener('mouseover', (e) =>
-    e.target.classList.add('selected'))
+    e.target.style.setProperty('background-color', sliderColor.value))
     })    
 }
 coloringGrd()
 
-// botao de limpeza da classe com estilo
+// botao de limpeza de propriedade de estilo
 const clearButton = document.querySelector('#clear-button')
 clearButton.addEventListener('click', clearGrid)
 
 function clearGrid() {
     let casas = document.querySelectorAll('.grid')
     casas.forEach(casa => {
-        casa.classList.remove('selected')
+        casa.style.removeProperty('background-color')
     })
 }
+
+// alterando a cor por meio de variavel css
+const sliderColor = document.querySelector('#slider-color')
+sliderColor.addEventListener('change', () => {
+    root.style.setProperty('--gridColor', sliderColor.value)
+})
