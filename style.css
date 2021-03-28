@@ -11,12 +11,13 @@ body {
 
 #setup {
     display: flex;
-    flex-direction: column;
-    width: 100px;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
-#slider-color {
+#slider-color,
+button {
     width: 94px;
     height: 30px;
     margin-top: 5px;
@@ -25,6 +26,9 @@ body {
 .slider-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    
+
 }
 
 p {
@@ -37,8 +41,18 @@ p {
     display: grid;
     grid-template-columns: repeat(var(--gridRowsColumns), var(--squareSize));
     grid-template-rows: repeat(var(--gridRowsColumns), var(--squareSize));
+    border: 1px solid black;
 }
 
 .grid {
     border: 1px solid rgb(228, 228, 228);
+}
+
+.off {
+    font-weight: bold;
+    color: red;
+}
+
+.on {
+    color: gray
 }

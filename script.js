@@ -3,10 +3,10 @@ const root = document.documentElement
 // barra slider para mudança do grid
 const slider = document.querySelector('.slider')
 const sliderResult = document.querySelector('.slider-result')
-sliderResult.textContent = slider.value
+sliderResult.textContent = `grid size: ${slider.value} x ${slider.value}`
 // atualização do grid conforme mudança no slider
 slider.oninput = function() {
-    sliderResult.textContent = slider.value
+    sliderResult.textContent = `grid size: ${slider.value} x ${slider.value}`
 }
 
 // botao de criação de novo grid
@@ -45,19 +45,64 @@ function newGrid() {
     root.style.setProperty('--squareSize', squareSize)
 
     // funcao de desenho
-    coloringGrd() 
+    onOff()
 }
 
-// funcao de desenho
-function coloringGrd() {
+// funcao para chamada no event listener
+function changeOnEvent(e) {
+    e.target.style.setProperty('background-color', sliderColor.value)
+}
+
+// iniciar desenho ao clique
+function startColoring() {
     // evento de 'mouseover' para adição de propriedade de estilo
     let casas = document.querySelectorAll('.grid')
     casas.forEach(casa => {
-    casa.addEventListener('mouseover', (e) =>
-    e.target.style.setProperty('background-color', sliderColor.value))
+        casa.addEventListener('mouseover', changeOnEvent)   
     })    
 }
-coloringGrd()
+
+// parar desenho ao clique
+function stopColoring() {
+    // evento de 'mouseover' para adição de propriedade de estilo
+    let casas = document.querySelectorAll('.grid')
+    casas.forEach(casa => {
+        casa.removeEventListener('mouseover', changeOnEvent)    
+    })
+}
+const on = document.querySelector('.on')
+const off = document.querySelector('.off')
+// liga e desliga ao clique
+let state = false
+function onOff() {
+    let casas = document.querySelectorAll('.grid')
+    casas.forEach(casa => {
+        casa.addEventListener('click', () => {
+        state = !state
+        if(state) {
+            startColoring()
+            on.textContent = on.textContent.toUpperCase()
+            on.style.setProperty('color', 'green')
+            on.style.setProperty('font-weight', 'bold')
+            off.style.setProperty('color', 'gray')
+            off.textContent = off.textContent.toLowerCase()
+            off.style.setProperty('font-weight', 'normal')
+        }
+        else {
+            stopColoring()
+            off.textContent = off.textContent.toUpperCase()
+            off.style.setProperty('color', 'red')
+            off.style.setProperty('font-weight', 'bold')
+            on.style.setProperty('color', 'gray')
+            on.textContent = on.textContent.toLowerCase()
+            on.style.setProperty('font-weight', 'normal')
+        }
+        })
+    }) 
+}
+onOff()
+
+
 
 // botao de limpeza de propriedade de estilo
 const clearButton = document.querySelector('#clear-button')
@@ -75,3 +120,4 @@ const sliderColor = document.querySelector('#slider-color')
 sliderColor.addEventListener('change', () => {
     root.style.setProperty('--gridColor', sliderColor.value)
 })
+
