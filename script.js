@@ -103,7 +103,6 @@ function onOff() {
 onOff()
 
 
-
 // botao de limpeza de propriedade de estilo
 const clearButton = document.querySelector('#clear-button')
 clearButton.addEventListener('click', clearGrid)
@@ -120,4 +119,3 @@ const sliderColor = document.querySelector('#slider-color')
 sliderColor.addEventListener('change', () => {
     root.style.setProperty('--gridColor', sliderColor.value)
 })
-
