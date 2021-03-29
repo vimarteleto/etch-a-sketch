@@ -5,7 +5,7 @@ const slider = document.querySelector('.slider')
 const sliderResult = document.querySelector('.slider-result')
 sliderResult.textContent = `grid size: ${slider.value} x ${slider.value}`
 // atualização do grid conforme mudança no slider
-slider.oninput = function() {
+slider.oninput = () => {
     sliderResult.textContent = `grid size: ${slider.value} x ${slider.value}`
 }
 
