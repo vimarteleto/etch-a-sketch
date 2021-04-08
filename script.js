@@ -3,10 +3,10 @@ const root = document.documentElement
 // barra slider para mudança do grid
 const slider = document.querySelector('.slider')
 const sliderResult = document.querySelector('.slider-result')
-sliderResult.textContent = `grid size: ${slider.value} x ${slider.value}`
+sliderResult.textContent = `${slider.value} x ${slider.value}`
 // atualização do grid conforme mudança no slider
 slider.oninput = () => {
-    sliderResult.textContent = `grid size: ${slider.value} x ${slider.value}`
+    sliderResult.textContent = `${slider.value} x ${slider.value}`
 }
 
 // botao de criação de novo grid

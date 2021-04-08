@@ -9,39 +9,64 @@ body {
     justify-content: center;
 }
 
-#setup {
+#main {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end
+}
+
+#setup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 200px;
+    margin-right: 10px;
 }
 
 
-#slider-color,
 button {
     width: 94px;
     height: 30px;
     margin-top: 5px;
 }
 
-.slider-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+#slider-color {
+    width: 88px;
+    height: 26px;
+    margin-top: 5px;
+}
 
+input.slider {
+    width: 150px;
 }
 
 p {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Ubuntu, Helvetica, sans-serif;
     font-size: larger;
     margin-left: 10px;
+    margin: 2px;
+    
 }
 
 #grid-container {
     display: grid;
     grid-template-columns: repeat(var(--gridRowsColumns), var(--squareSize));
     grid-template-rows: repeat(var(--gridRowsColumns), var(--squareSize));
-    border: 1px solid black;
+    border: 15px solid rgba(124, 124, 124, 0.562);
+    border-radius: 5px;
+    
 }
 
 .grid {
